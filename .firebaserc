@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "practicaweb-6e4bd": {
+      "hosting": {
+        "ProyectoFinalWeb": [
+          "practicaweb-6e4bd"
+        ]
+      }
+    }
+  }
+}
