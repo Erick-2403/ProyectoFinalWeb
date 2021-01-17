@@ -1,0 +1,99 @@
+<nav nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" id="clientes" [routerLink]="['/historialpedidos']" style="width: 160px;">Historial
+                    Pedidos</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/pedidos']" id="clientes">Agregar Compra</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/resumencompra']" id="clientes">Detalle Compra</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container p-4 Usuarios">
+    <div class="row">
+        <div class="col-md-8.offset-md-6"></div>
+        <div class="modal-content" style="width: 100%;border-radius: 36px; height: 300px;" id="titulo">
+            <!-- <div class="modal-body"> -->
+            <h3 style="margin-left: 350px">HISTORIAL DE PEDIDOS</h3>
+            <form id="registrar-cliente" style="width: 250px; margin-left: 15%; height: 300px;">
+                <div class="form-group">
+                    <input type="text" id="cedula" class="form-control" placeholder="Cédula" style="margin-top:18px; 
+                      margin-left: -70px;">
+                </div>
+                <div class="form-group">
+                    <select id="estado" class="form-control" style="margin-left: -70px;">
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Entregado">Entregado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="fecha_entrega" class="form-control" placeholder="Nº Factura" style="margin-top:18px; 
+                  margin-left: -70px;">
+                </div>
+                <div class="form-group">
+                    <select name="buscar" id="buscarPed" class="form-control" onclick="escoger()" style="margin-left: 720px;
+                    margin-top: -50px; width: 190px;">
+                        <option value="buscar">Buscar Por:</option>
+                        <option value="Estado" id="estadoP">Estado</option>
+                        <option value="Fecha" id="fecha">Fecha</option>
+                        <option value="Cédula" id="cedula">Cédula</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- RECEPCION DE PEDIDOS FORMULARIO -->
+<table class="table table-stripped" style="margin-top: -10px;">
+    <thead>
+        <tr>
+            <th>ID Pedido</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cédula</th>
+            <th>fecha_entrega</th>
+            <th>fecha_pedido</th>
+            <th>Estado</th>
+            <th>Total</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody id="tablita">
+    </tbody>
+</table>
+
+<div class="modal" tabindex="-1" id="modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTask">Detalle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="borrar()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-stripped" style="margin-top: -10px;">
+                    <thead>
+                        <tr>
+                            <th>ID Producto</th>
+                            <th>Producto</th>
+                            <th>Precio_x_Producto</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProduc">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-8 col-md-2">
+    <button type="button" data-toggle="modal" data-target="#modal" class="btn btn-success btn-block">ACEPTAR</button>
+</div>

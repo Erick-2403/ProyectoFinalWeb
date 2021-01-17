@@ -26,22 +26,30 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electronico</label> 
-                        <input type="email" class="form-control" formControlName="usuario"  placeholder="Ingrese su email"/>
+                        <input type="email" class="form-control" formControlName="email"  placeholder="Ingrese su email"/>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>  
                         <input type="password" class="form-control" formControlName="password"  placeholder="Ingrese contraseña"/>
                     </div>
-                    <div class="form-group">
-                        <google-map></google-map>
-                        <div class="clearfix">&nbsp;</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block"[routerLink]="['/pedidos']">Confirmar</button>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Confirmar</button>
                 </form>
                 <div class="form-group mt-3">
                     <p>Ya tienes una cuenta?<a [routerLink]="['/login']"> Iniciar Sesion</a></p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-6 mx-auto mt-5">
+        <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="located">
+                <agm-info-window>
+                    Mi Posicion
+                </agm-info-window>
+            </agm-marker>
+          </agm-map>
+        <div class="clearfix">&nbsp;</div>
+        <button (click)="obtenerPosicion()" type="button" class="btn btn-info">Obtener Direccion</button>
     </div>
 </div>

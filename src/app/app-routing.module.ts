@@ -13,7 +13,10 @@ const routes: Routes = [
 { path: 'login', loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule) 
 }, 
 { path: 'register', loadChildren: () => import('./auth/register/register.module').then(m => m.RegisterModule) },
-  { path: 'pedidos', loadChildren: () => import('./auth/pedidos/pedidos.module').then(m => m.PedidosModule) }];
+  { path: 'pedidos', loadChildren: () => import('./auth/pedidos/pedidos.module').then(m => m.PedidosModule) },
+  { path: 'historialpedidos', loadChildren: () => import('./auth/historialpedidos/historialpedidos.module').then(m => m.HistorialpedidosModule) },
+  { path: 'resumencompra', loadChildren: () => import('./auth/resumencompra/resumencompra.module').then(m => m.ResumencompraModule) },
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

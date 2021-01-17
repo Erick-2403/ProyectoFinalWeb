@@ -5,6 +5,7 @@ import { PedidosRoutingModule } from './pedidos-routing.module';
 import { PedidosComponent } from './pedidos.component';
 
 
+
 @NgModule({
   declarations: [PedidosComponent],
   imports: [
