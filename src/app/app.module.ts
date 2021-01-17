@@ -3,11 +3,11 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {GoogleMapsModule} from '@angular/google-maps';
-import {AgmCoreModule} from '@agm/core';
-import {AngularFireModule} from '@angular/fire';
-import { AngularFireAuthModule} from '@angular/fire/auth';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AgmCoreModule } from '@agm/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 //firebase
