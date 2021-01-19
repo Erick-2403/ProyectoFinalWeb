@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore'
+
+import { Cliente } from 'src/app/models/cliente';
+//Servicios
 import { AuthService } from './../services/auth.service';
 
 @Component({
@@ -10,6 +14,19 @@ import { AuthService } from './../services/auth.service';
   providers: [AuthService]
 })
 export class RegisterComponent implements OnInit {
+
+  cliente: Cliente = {
+    id: '',
+    nombre: '',
+    apellido: '',
+    cedula: '',
+    telefono: '',
+    direccion: '',
+    email: '',
+    password: '',
+    latitud: 0 ,
+    longitud:0,
+  }
   title = 'ProyectoFinalWeb';
   lat: number;
   lng: number;
@@ -17,17 +34,7 @@ export class RegisterComponent implements OnInit {
   mapTypeId: string;
   located: boolean;
 
-  registerForm = new FormGroup({
-    usuario: new FormControl(''),
-    apellido: new FormControl(''),
-    cedula: new FormControl(''),
-    telefono: new FormControl(''),
-    direccion: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl('')
-  });
-
-  constructor(private authSvc: AuthService, private router: Router) {
+  constructor(public authSvc: AuthService, public firestoreService: AngularFirestore, public router: Router) {
     this.lat = -1.2676056300742873;
     this.lng = -78.62417857515283;
     this.zoom = 17;
@@ -38,26 +45,37 @@ export class RegisterComponent implements OnInit {
   obtenerPosicion() {
     navigator.geolocation.getCurrentPosition(position => {
       this.lat = position.coords.latitude;
+      this.cliente.latitud=this.lat;
       this.lng = position.coords.longitude;
+      this.cliente.longitud=this.lng;
       this.zoom = 17;
       this.located = true;
     })
   }
 
   ngOnInit(): void {
+
   }
 
   async onRegister() {
-    const { email, password } = this.registerForm.value;
     try {
-      const usuario = await this.authSvc.registroUsuario(email, password);
-      //Redireccionar a la pagina Historial Pedidos
-      if (usuario) {
-        this.router.navigate(['/historialpedidos']);
-      }
+      const credenciales = {
+        email: this.cliente.email,
+        password: this.cliente.password
+      };
+      await this.authSvc.registroCliente(credenciales.email, credenciales.password);
+      //console.log(this.cliente);
+      this.guardarCliente();
+      //Redireccionar a la pagina Historial Pedidos despues de registrarse
+      this.router.navigate(['/historialpedidos']);
     }
     catch (error) {
       console.log(error);
     }
+  }
+  async guardarCliente() {
+    this.cliente.id = this.authSvc.generarID();
+    const path = "Clientes";
+    this.authSvc.crearDocumento(this.cliente, path, this.cliente.id);
   }
 }

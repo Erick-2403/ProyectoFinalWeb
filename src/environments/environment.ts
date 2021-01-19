@@ -5,9 +5,10 @@
 export const environment = {
   production: false,
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  firebaseConfig : {
+  firebaseConfig: {
     apiKey: "AIzaSyB852-VYnysDgElK_EpPwgznJ2vWTULYRg",
     authDomain: "practicaweb-6e4bd.firebaseapp.com",
+    databaseURL: "https://practicaweb-6e4bd-default-rtdb.firebaseio.com",
     projectId: "practicaweb-6e4bd",
     storageBucket: "practicaweb-6e4bd.appspot.com",
     messagingSenderId: "1001065847862",

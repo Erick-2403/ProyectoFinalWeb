@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {GoogleMapsModule} from '@angular/google-maps';
-import {AgmCoreModule} from '@agm/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -18,6 +20,7 @@ import {AgmCoreModule} from '@agm/core';
     RegisterRoutingModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    FormsModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyAPgULEfWn5zTzVY6gBhFgxtI3GyLcWrgo'
     })
