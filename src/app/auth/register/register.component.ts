@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: '',
     latitud: 0 ,
-    longitud:0,
+    longitud: 0 ,
   }
   title = 'ProyectoFinalWeb';
   lat: number;

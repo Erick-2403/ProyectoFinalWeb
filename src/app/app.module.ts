@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 //Servicios
 import {AuthService} from '../app/auth/services/auth.service';
-
+import { ProductosService } from '../app/auth/services/productos.service';
 
 
 @NgModule({
@@ -39,7 +39,7 @@ import {AuthService} from '../app/auth/services/auth.service';
       apiKey:'AIzaSyAPgULEfWn5zTzVY6gBhFgxtI3GyLcWrgo'
     })
   ],
-  providers: [AuthService],
+  providers: [AuthService,ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

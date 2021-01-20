@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'pedidos', loadChildren: () => import('./auth/pedidos/pedidos.module').then(m => m.PedidosModule) },
   { path: 'historialpedidos', loadChildren: () => import('./auth/historialpedidos/historialpedidos.module').then(m => m.HistorialpedidosModule) },
   { path: 'resumencompra', loadChildren: () => import('./auth/resumencompra/resumencompra.module').then(m => m.ResumencompraModule) },
+  { path: 'agregarproductos', loadChildren: () => import('./auth/agregarproductos/agregarproductos.module').then(m => m.AgregarproductosModule) },
   ];
 
 @NgModule({

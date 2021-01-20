@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="jumbotron">Agregar Productos </h1>
+            <div id="app">
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;"></th>
+                            <th style="width: 200px;">Producto</th>
+                            <th style="width: 200px;">Categoria</th>
+                            <th style="width: 200px;">Precio</th>
+                            <th style="width: 100px;">IVA</th>
+                            <th style="width: 200px;">Precio Venta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="text" class="form-control" name="nombre" [(ngModel)]="producto.nombre">
+                            </td>
+                            <td>
+                                <select name="servicio" [(ngModel)]="producto.categoria" class="form-control">
+                                    <option value="Licores">Licores</option>
+                                    <option value="Frutas">Frutas</option>
+                                    <option value="Verduras">Verduras</option>
+                                    <option value="Carnes">Carnes</option>
+                                    <option value="Embutidos">Embutidos</option>
+                                    <option value="Enlatados">Enlatados</option>
+                                    <option value="Lacteos">Lacteos</option>
+                                    <option value="Limpieza">Limpieza</option>
+                                </select>
+                            </td>
+                            
+                            <td>
+                                <input type="number" class="form-control" name="precio" [(ngModel)]="producto.precio">
+                            </td>
+                            <td>
+                                <input type="checkbox" (change)="bulk($event)">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" (click)="calcularPrecioVenta()" readonly
+                                    name="precioventa" [(ngModel)]="producto.precioventa">
+                            </td>
+                            <td>
+                                <button type="button" (click)="agregarProducto()"
+                                    class="btn btn-success btn-block">Agregar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
