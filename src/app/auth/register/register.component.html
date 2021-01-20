@@ -47,8 +47,7 @@
     </div>
     <div class="col-md-6 mx-auto mt-5">
         <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng" 
-            *ngIf="located">
+            <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="located">
                 <agm-info-window>
                     <p>Nombre: {{ cliente.nombre }}</p>
                     Apellido: {{ cliente.apellido}}
